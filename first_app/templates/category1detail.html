@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bs4/bootstrap.min.css' %}" />
+    <!-- Main Jquery -->
+    <script type="text/javascript" src="{% static 'vendor/jquery.min.js' %}"></script>
+    <!-- Bootstrap Js -->
+    <script type="text/javascript" src="{% static '/vendor/bs4/bootstrap.min.js' %}"></script>
+  </head>
+  <body>
+    <!-- Top News -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+      <div class="container">
+        <a class="navbar-brand" href="/">Go-Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          {% comment %} <a class="nav-link text-white">All Categories</a> {% endcomment %}
+          <a class="navbar-brand" href="{% url 'login' %}">Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <h1>{{ category.name }}</h1>
+    {% for article in articles %}
+      <div class="col-md-4">
+        <div class="card mb-3 shadow">
+          <img src="/media/{{ article.image }}" class="card-img-top" alt="{{ article.Headline }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ article.Headline }}</h5>
+            <p class="card-text">{{ article.Body|slice:':150' }}</p>
+            <p>Average Rating: {{ article.avg_rating }}</p>
+            {% comment %} <a href="{% url 'detail' article.id %}" class="btn btn-sm btn-primary">Datails</a> {% endcomment %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <hr />
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#" class="btn btn-sm btn-primary">Back to top</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
