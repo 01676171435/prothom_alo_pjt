@@ -31,7 +31,12 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "https://prothom-alo-pjt-1.onrender.com",
+    "http://prothom-alo-pjt-1.onrender.com",
 ]
+
+# Render / reverse proxy fix
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
 # Application definition
 
 INSTALLED_APPS = [
