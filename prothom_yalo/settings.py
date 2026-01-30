@@ -23,9 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-3q&s#bew(cp09ieqdadbuhgn)#d=tg-psutp)tct5u^764h14+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "prothom-alo-project-test-1.onrender.com",
+]
 
 
 # Application definition
