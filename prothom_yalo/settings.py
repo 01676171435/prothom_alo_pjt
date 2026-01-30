@@ -29,6 +29,9 @@ ALLOWED_HOSTS = [
     "prothom-alo-pjt.onrender.com",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://prothom-alo-pjt-1.onrender.com",
+]
 
 # Application definition
 
